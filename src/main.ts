@@ -27,9 +27,15 @@ async function bootstrap() {
     SwaggerModule.createDocument(app, documentConfig),
   );
 
-  await app.listen(appConfig.port, '0.0.0.0', () => {
-    logger.debug(`Bitcoin service available on port ${appConfig.port}`);
-  });
+  await app.listen(
+    {
+      port: appConfig.port,
+      host: '0.0.0.0',
+    },
+    () => {
+      logger.debug(`Bitcoin price service available on port ${appConfig.port}`);
+    },
+  );
 }
 
 bootstrap();
