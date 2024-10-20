@@ -22,4 +22,4 @@
 2. **Запустите сервис с помощью Docker Compose:**
   docker-compose up --build
 
-Можете отправить GET запрос на http://localhost:3000/bitcoin-price и вы получите актуальную цену биткоина 
+Можете отправить GET запрос на http://localhost:3000/bitcoin/get-current-price и вы получите актуальную цену биткоина 
