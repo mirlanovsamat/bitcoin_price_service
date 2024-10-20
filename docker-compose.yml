@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  app:
+    container_name: bitcoin_price_service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      APP_PORT: 3000
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      BITCOIN_API: 'https://api.binance.com/api/v3/ticker/bookTicker?symbol=BTCUSDT'
+      UPDATE_FREQUENCY: 10000
+      COMMISSION: 0.01
+    depends_on:
+      - redis
+    restart: always
+    networks:
+      - bitcoin_price_service
+
+  redis:
+    container_name: bitcoin_price_redis
+    image: redis:latest
+    ports:
+      - '6379:6379'
+    restart: always
+    networks:
+      - bitcoin_price_service
+
+networks:
+  bitcoin_price_service:
+    driver: bridge
