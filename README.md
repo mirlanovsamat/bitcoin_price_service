@@ -17,7 +17,6 @@
 ## Установка и запуск
 1. **Клонируйте репозиторий:**
   git clone https://github.com/mirlanovsamat/bitcoin_price_service.git
-  cd <папка вашего проекта>
 
 2. **Запустите сервис с помощью Docker Compose:**
   docker-compose up --build
